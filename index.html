@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>[DC] - Requerimentos de Membros</title>
+    <link rel="icon" href="badgedc.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+      
+      /* ====== VARIÁVEIS DE CORES - TEMA CLARO ===== */
+      :root {
+        /* Cores principais */
+        --primary-color: #337218;
+        --primary-light: #4a9e2a;
+        --primary-dark: #2a5d14;
+        
+        /* Cores do tema claro */
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #2d3748;
+        --text-secondary: #718096;
+        --border-color: #e2e8f0;
+        --shadow-color: rgba(0, 0, 0, 0.08);
+        --hover-color: #f7fafc;
+        
+        /* Cores de elementos */
+        --input-bg: #ffffff;
+        --input-border: #cbd5e0;
+        --header-bg: #ffffff;
+        --footer-bg: #1a202c;
+        --footer-text: #e2e8f0;
+        
+        /* Ícones */
+        --icon-color: #4a5568;
+        
+        /* Status */
+        --success-color: #38a169;
+        --error-color: #e53e3e;
+        --warning-color: #d69e2e;
+        
+        /* Tamanhos e espaçamentos */
+        --border-radius: 12px;
+        --card-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        /* Tipografia */
+        --body-font: "Poppins", "sans-serif";
+        --title-font-size: 2.2rem;
+        --subtitle-font-size: 1.1rem;
+        --normal-font-size: 0.95rem;
+      }
+
+      /* ====== VARIÁVEIS DE CORES - TEMA ESCURO ===== */
+      [data-theme="dark"] {
+        --bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --border-color: #334155;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --hover-color: #2d3748;
+        
+        --input-bg: #1e293b;
+        --input-border: #475569;
+        --header-bg: #1e293b;
+        --footer-bg: #0f172a;
+        --footer-text: #cbd5e1;
+        
+        --icon-color: #cbd5e1;
+      }
+
+      /* ====== RESET E BASE ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: var(--transition);
+        min-height: 100vh;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* ====== HEADER ===== */
+      .header {
+        background-color: var(--header-bg);
+        box-shadow: 0 2px 10px var(--shadow-color);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+      
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        height: 70px;
+      }
+      
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .header-logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--primary-color);
+      }
+      
+      .header-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-color);
+        letter-spacing: 0.5px;
+      }
+      
+      .header-title span {
+        color: var(--primary-color);
+      }
+      
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      
+      /* ====== TOGGLE DE TEMA ===== */
+      .theme-toggle {
+        background: none;
+        border: none;
+        color: var(--icon-color);
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 8px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+      
+      .theme-toggle:hover {
+        background-color: var(--hover-color);
+        transform: rotate(15deg);
+      }
+      
+      .theme-toggle .bx-sun {
+        display: none;
+      }
+      
+      [data-theme="dark"] .theme-toggle .bx-sun {
+        display: block;
+      }
+      
+      [data-theme="dark"] .theme-toggle .bx-moon {
+        display: none;
+      }
+      
+      /* ====== CONTEÚDO PRINCIPAL ===== */
+      .main-content {
+        margin-top: 90px;
+        padding: 2rem 0;
+      }
+      
+      .page-title {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .page-title h1 {
+        font-size: var(--title-font-size);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+      
+      .page-title p {
+        font-size: var(--subtitle-font-size);
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      /* ====== SELECTOR DE FORMULÁRIOS ===== */
+      .form-selector-container {
+        position: relative;
+        max-width: 600px;
+        margin: 2rem auto 3rem;
+      }
+      
+      .form-selector {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        font-family: var(--body-font);
+        color: var(--text-color);
+        background-color: var(--card-bg);
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius);
+        appearance: none;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--card-shadow);
+      }
+      
+      .form-selector:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(51, 114, 24, 0.1);
+      }
+      
+      .form-selector-icon {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--icon-color);
+        pointer-events: none;
+        font-size: 1.2rem;
+      }
+      
+      /* ====== CONTAINER DE FORMULÁRIOS ===== */
+      .forms-container {
+        display: grid;
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      /* ====== CARD DE FORMULÁRIO ===== */
+      .form-card {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        overflow: hidden;
+        transition: var(--transition);
+        border: 1px solid var(--border-color);
+        display: none;
+      }
+      
+      .form-card.active {
+        display: block;
+        animation: slideUp 0.4s ease-out;
+      }
+      
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .form-card-header {
+        padding: 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+      }
+      
+      .form-card-icon {
+        font-size: 1.5rem;
+      }
+      
+      .form-card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      
+      .form-card-body {
+        padding: 2rem;
+      }
+      
+      /* ====== FORMULÁRIOS ===== */
+      .form-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .input-group {
+        margin-bottom: 1.5rem;
+      }
+      
+      .input-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-color);
+        font-size: 0.95rem;
+      }
+      
+      .input-field,
+      .input-select {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+        font-family: var(--body-font);
+        color: var(--text-color);
+        background-color: var(--input-bg);
+        border: 1px solid var(--input-border);
+        border-radius: 8px;
+        transition: var(--transition);
+      }
+      
+      .input-field:focus,
+      .input-select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(51, 114, 24, 0.1);
+      }
+      
+      .input-field::placeholder {
+        color: var(--text-secondary);
+        opacity: 0.7;
+      }
+      
+      /* ====== CHECKBOX ===== */
+      .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+        background-color: var(--hover-color);
+        border-radius: 8px;
+        margin: 2rem 0;
+        border-left: 4px solid var(--primary-color);
+      }
+      
+      .checkbox-group input[type="checkbox"] {
+        margin-top: 0.25rem;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: var(--primary-color);
+      }
+      
+      .checkbox-group label {
+        flex: 1;
+        color: var(--text-color);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+      
+      /* ====== BOTÕES ===== */
+      .form-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .btn {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: var(--body-font);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-width: 150px;
+      }
+      
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+      }
+      
+      .btn-primary:hover {
+        background-color: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(51, 114, 24, 0.2);
+      }
+      
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+      
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+      }
+      
+      .btn-secondary:hover {
+        background-color: var(--hover-color);
+      }
+      
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+      
+      /* ====== NOTIFICAÇÃO ===== */
+      .notification {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        padding: 1rem 1.5rem;
+        background-color: var(--success-color);
+        color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        z-index: 1001;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: var(--transition);
+      }
+      
+      .notification.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .notification-icon {
+        font-size: 1.5rem;
+      }
+      
+      .notification-content {
+        flex: 1;
+      }
+      
+      .notification-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      
+      .notification-message {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+      
+      /* ====== FOOTER ===== */
+      .footer {
+        background-color: var(--footer-bg);
+        color: var(--footer-text);
+        margin-top: 4rem;
+        padding: 3rem 0 2rem;
+      }
+      
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: white;
+      }
+      
+      .footer-section p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.8;
+      }
+      
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+      
+      .credits {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      
+      /* ====== RESPONSIVIDADE ===== */
+      @media (max-width: 768px) {
+        :root {
+          --title-font-size: 1.8rem;
+        }
+        
+        .header-container {
+          padding: 1rem;
+          height: 60px;
+        }
+        
+        .header-title {
+          font-size: 1.1rem;
+        }
+        
+        .main-content {
+          margin-top: 80px;
+          padding: 1.5rem 1rem;
+        }
+        
+        .form-card-body {
+          padding: 1.5rem;
+        }
+        
+        .form-group {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        
+        .form-actions {
+          flex-direction: column;
+        }
+        
+        .btn {
+          width: 100%;
+        }
+        
+        .notification {
+          left: 1rem;
+          right: 1rem;
+          bottom: 1rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .header-left {
+          gap: 10px;
+        }
+        
+        .header-logo {
+          width: 35px;
+          height: 35px;
+        }
+        
+        .page-title h1 {
+          font-size: 1.5rem;
+        }
+        
+        .page-title p {
+          font-size: 1rem;
+        }
+        
+        .form-card-header {
+          padding: 1rem;
+        }
+      }
+      
+      /* ====== UTILITÁRIOS ===== */
+      .hidden {
+        display: none !important;
+      }
+      
+      .loading {
+        position: relative;
+        pointer-events: none;
+        opacity: 0.7;
+      }
+      
+      .loading::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 2px solid transparent;
+        border-top-color: currentColor;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        right: 1rem;
+      }
+      
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body data-theme="light">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header-container">
+        <div class="header-left">
+          <img src="badgedc.png" alt="Badge DC" class="header-logo">
+          <h1 class="header-title">[OM] <span>Departamento de Comunicação</span></h1>
+        </div>
+        <div class="header-right">
+          <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+            <i class="bx bx-moon"></i>
+            <i class="bx bx-sun"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+      <div class="container">
+        <div class="page-title">
+          <h1>Requerimentos do Subgrupo</h1>
+          <p>Utilize os formulários abaixo para realizar os requerimentos desejados. Certifique-se de preencher todas as informações corretamente antes de enviar.</p>
+        </div>
+
+        <!-- SELECTOR DE FORMULÁRIOS -->
+        <div class="form-selector-container">
+          <select id="formSelector" class="form-selector">
+            <option value="" disabled selected>Selecione o requerimento desejado</option>
+            <option value="entrada_membros">Entrada de Membros</option>
+            <option value="expulsao_subgrupo">Expulsão do Subgrupo</option>
+            <option value="licenca">Licença</option>
+            <option value="promocao_interna">Promoção Interna</option>
+            <option value="rebaixamento_interno">Rebaixamento Interno</option>
+            <option value="saida_subgrupo">Saída do Subgrupo</option>
+            <option value="prolongamento_licenca">Prolongamento de Licença</option>
+            <option value="retorno_licenca">Retorno de Licença</option>
+            <option value="transferencia_conta">Transferência de Conta</option>
+            <option value="reintegracao_subgrupo">Reintegração ao Subgrupo</option>
+            <option value="advertencia_interna">Advertência Interna</option>
+            <option value="atualizacao_listagem">Atualização de Listagem</option>
+          </select>
+          <div class="form-selector-icon">
+            <i class="bx bx-chevron-down"></i>
+          </div>
+        </div>
+
+        <!-- CONTAINER DE FORMULÁRIOS -->
+        <div class="forms-container">
+          
+          <!-- FORMULÁRIO 1: ENTRADA DE MEMBROS -->
+          <div class="form-card active" id="entrada_membros">
+            <div class="form-card-header">
+              <i class="bx bx-user-plus form-card-icon"></i>
+              <h2 class="form-card-title">Entrada de Membros</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_entrada">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Novos Membros</label>
+                    <input id="ent_membros" type="text" class="input-field" placeholder="Nicknames separados por ' / ' Ex: thurbarbw / Hwberto" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Data de Entrada</label>
+                    <input id="ent_data" type="text" class="input-field data_hour" placeholder="DD Mmm AAAA" required />
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="ent_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_entrada')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 2: EXPULSÃO DO SUBGRUPO -->
+          <div class="form-card" id="expulsao_subgrupo">
+            <div class="form-card-header">
+              <i class="bx bx-user-x form-card-icon"></i>
+              <h2 class="form-card-title">Expulsão do Subgrupo</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_expulsao">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro Expulso</label>
+                    <input id="exp_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Cargo</label>
+                    <select id="exp_cargo" class="input-select" required>
+                      <option value="" disabled selected>Selecione o cargo</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Motivo da Expulsão</label>
+                    <input id="exp_motivo" type="text" class="input-field" placeholder="Motivo da expulsão" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Comprovante</label>
+                    <input id="exp_comprovante" type="text" class="input-field" placeholder="Link/comprovante (Preferível imgur)" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Permissão</label>
+                    <input id="exp_perm" type="text" class="input-field" placeholder="Quem autorizou" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Data de Entrada</label>
+                    <input id="exp_entrada" type="text" class="input-field data_hour" placeholder="DD Mmm AAAA" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Data da Expulsão</label>
+                    <input id="exp_saida" type="text" class="input-field data_hour" placeholder="DD Mmm AAAA" required />
+                  </div>
+                </div>
+                <div class="checkbox-group">
+                  <input id="exp_check" type="checkbox" required />
+                  <label for="exp_check">O militar terá retorno bloqueado por 07 dias a partir desta postagem.</label>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="exp_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_expulsao')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 3: LICENÇA -->
+          <div class="form-card" id="licenca">
+            <div class="form-card-header">
+              <i class="bx bx-calendar-alt form-card-icon"></i>
+              <h2 class="form-card-title">Licença</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_licenca">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro</label>
+                    <input id="lic_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Dias de Licença</label>
+                    <input id="lic_dias" type="number" min="3" max="90" class="input-field" placeholder="3 a 90 dias" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Permissão</label>
+                    <input id="lic_perm" type="text" class="input-field" placeholder="Quem autorizou" required />
+                  </div>
+                </div>
+                <div class="checkbox-group">
+                  <input id="lic_check" type="checkbox" required />
+                  <label for="lic_check">Concordo que devo postar o retorno em até 24h após o término, sob risco de rebaixamento ou expulsão.</label>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="lic_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_licenca')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 4: PROMOÇÃO INTERNA -->
+          <div class="form-card" id="promocao_interna">
+            <div class="form-card-header">
+              <i class="bx bx-trending-up form-card-icon"></i>
+              <h2 class="form-card-title">Promoção Interna</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_promocao">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro Promovido</label>
+                    <input id="prom_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Cargo Atual</label>
+                    <select id="prom_atual" class="input-select" required>
+                      <option value="" disabled selected>Selecione cargo atual</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
+                    </select>
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Novo Cargo</label>
+                    <select id="prom_novo" class="input-select" required>
+                      <option value="" disabled selected>Selecione cargo novo</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label class="input-label">Motivo da Promoção</label>
+                  <input id="prom_motivo" type="text" class="input-field" placeholder="Motivo da promoção" required />
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="prom_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_promocao')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 5: REBAIXAMENTO INTERNO -->
+          <div class="form-card" id="rebaixamento_interno">
+            <div class="form-card-header">
+              <i class="bx bx-trending-down form-card-icon"></i>
+              <h2 class="form-card-title">Rebaixamento Interno</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_rebaixamento">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro Rebaixado</label>
+                    <input id="reb_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Cargo Atual</label>
+                    <select id="reb_atual" class="input-select" required>
+                      <option value="" disabled selected>Selecione cargo atual</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
+                    </select>
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Novo Cargo</label>
+                    <select id="reb_novo" class="input-select" required>
+                      <option value="" disabled selected>Selecione cargo novo</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label class="input-label">Motivo do Rebaixamento</label>
+                  <input id="reb_motivo" type="text" class="input-field" placeholder="Motivo do rebaixamento" required />
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="reb_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_rebaixamento')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 6: SAÍDA DO SUBGRUPO -->
+          <div class="form-card" id="saida_subgrupo">
+            <div class="form-card-header">
+              <i class="bx bx-log-out form-card-icon"></i>
+              <h2 class="form-card-title">Saída do Subgrupo</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_saida">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro Saindo</label>
+                    <input id="sai_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Permissão</label>
+                    <input id="sai_perm" type="text" class="input-field" placeholder="Quem autorizou" required />
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label class="input-label">Motivo da Saída</label>
+                  <input id="sai_motivo" type="text" class="input-field" placeholder="Motivo da saída" required />
+                </div>
+                <div class="checkbox-group">
+                  <input id="sai_check" type="checkbox" required />
+                  <label for="sai_check">Li e concordo com as normas. Se meu tempo for inferior a 30 dias, receberei 100 medalhas negativas.</label>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="sai_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_saida')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 7: PROLONGAMENTO DE LICENÇA -->
+          <div class="form-card" id="prolongamento_licenca">
+            <div class="form-card-header">
+              <i class="bx bx-time-five form-card-icon"></i>
+              <h2 class="form-card-title">Prolongamento de Licença</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_prolongamento">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro</label>
+                    <input id="prol_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Dias Adicionais</label>
+                    <input id="prol_dias" type="number" min="1" max="30" class="input-field" placeholder="1 a 30 dias" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Permissão</label>
+                    <input id="prol_perm" type="text" class="input-field" placeholder="Quem autorizou" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Motivo do Prolongamento</label>
+                    <input id="prol_motivo" type="text" class="input-field" placeholder="Motivo do prolongamento" required />
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="prol_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_prolongamento')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 8: RETORNO DE LICENÇA -->
+          <div class="form-card" id="retorno_licenca">
+            <div class="form-card-header">
+              <i class="bx bx-calendar-check form-card-icon"></i>
+              <h2 class="form-card-title">Retorno de Licença</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_retorno">
+                <div class="input-group">
+                  <label class="input-label">Membro Retornando</label>
+                  <input id="ret_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="ret_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_retorno')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 9: TRANSFERÊNCIA DE CONTA -->
+          <div class="form-card" id="transferencia_conta">
+            <div class="form-card-header">
+              <i class="bx bx-transfer-alt form-card-icon"></i>
+              <h2 class="form-card-title">Transferência de Conta</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_transferencia">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Conta Antiga</label>
+                    <input id="trans_antiga" type="text" class="input-field" placeholder="Nickname antigo" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Nova Conta</label>
+                    <input id="trans_nova" type="text" class="input-field" placeholder="Novo nickname" required />
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label class="input-label">Cargo na Companhia</label>
+                  <select id="trans_cargo" class="input-select" required>
+                    <option value="" disabled selected>Selecione o cargo</option>
+                    <option value="Anl.DA">Analista</option>
+                    <option value="Coord.DA">Coordenador</option>
+                    <option value="VL.DA">Vice-Líder</option>
+                    <option value="L.DA">Líder</option>
+                  </select>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="trans_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_transferencia')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 10: REINTEGRAÇÃO AO SUBGRUPO -->
+          <div class="form-card" id="reintegracao_subgrupo">
+            <div class="form-card-header">
+              <i class="bx bx-recycle form-card-icon"></i>
+              <h2 class="form-card-title">Reintegração ao Subgrupo</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_reintegracao">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro Reintegrado</label>
+                    <input id="reint_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Data de Reintegração</label>
+                    <input id="reint_data" type="text" class="input-field data_hour" placeholder="DD Mmm AAAA" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Necessita Graduação?</label>
+                    <select id="reint_grad" class="input-select" required>
+                      <option value="" disabled selected>Selecione</option>
+                      <option value="Sim">Sim, necessita</option>
+                      <option value="Não">Não necessita</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="checkbox-group">
+                  <input id="reint_check" type="checkbox" required />
+                  <label for="reint_check">Afirmo que as informações foram passadas corretamente ao membro.</label>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="reint_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_reintegracao')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 11: ADVERTÊNCIA INTERNA -->
+          <div class="form-card" id="advertencia_interna">
+            <div class="form-card-header">
+              <i class="bx bx-error-circle form-card-icon"></i>
+              <h2 class="form-card-title">Advertência Interna</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_advertencia">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Membro Advertido</label>
+                    <input id="adv_nick" type="text" class="input-field" placeholder="Nickname do membro" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Data de Início</label>
+                    <input id="adv_data" type="text" class="input-field data_hour" placeholder="DD Mmm AAAA" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <label class="input-label">Motivo da Advertência</label>
+                    <input id="adv_motivo" type="text" class="input-field" placeholder="Motivo da advertência" required />
+                  </div>
+                  <div class="input-group">
+                    <label class="input-label">Permissão</label>
+                    <input id="adv_perm" type="text" class="input-field" placeholder="Quem autorizou" required />
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="adv_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_advertencia')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO 12: ATUALIZAÇÃO DE LISTAGEM -->
+          <div class="form-card" id="atualizacao_listagem">
+            <div class="form-card-header">
+              <i class="bx bx-list-check form-card-icon"></i>
+              <h2 class="form-card-title">Atualização de Listagem</h2>
+            </div>
+            <div class="form-card-body">
+              <form id="form_atualizacao">
+                <div class="input-group">
+                  <label class="input-label">TAG do atualizador</label>
+                  <input id="atu_membros" type="text" class="input-field" placeholder="Escreva o TAG do atualizador" required />
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="atu_btn">
+                    <i class="bx bx-send"></i> Enviar
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="resetForm('form_atualizacao')">
+                    <i class="bx bx-reset"></i> Limpar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- NOTIFICAÇÃO -->
+    <div class="notification" id="notification">
+      <i class="bx bx-check-circle notification-icon"></i>
+      <div class="notification-content">
+        <div class="notification-title">Sucesso!</div>
+        <div class="notification-message">Texto copiado para a área de transferência!</div>
+      </div>
+      <button class="theme-toggle" onclick="hideNotification()">
+        <i class="bx bx-x"></i>
+      </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Departamento de Comunicação</h3>
+            <p>Sistema de gerenciamento de requerimentos do subgrupo. Desenvolvido para facilitar e padronizar os processos internos. Utilize à vontade, policial!</p>
+          </div>
+          <div class="footer-section">
+            <h3>Desenvolvimento</h3>
+            <div class="credits">
+              <i class="bx bx-code-alt"></i>
+              <span>Base: thurbarbw & Hwberto | Contribuições: FritzzJ</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Ordem Militar. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- TEXTAREA OCULTO -->
+    <textarea style="display: none;" id="fa-generated-message"></textarea>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    
+    <script>
+      // VARIÁVEIS GLOBAIS
+      const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+      const cargos = {
+        "Anl.DA": "Analista",
+        "Coord.DA": "Coordenador", 
+        "VL.DA": "Vice-Líder",
+        "L.DA": "Líder"
+      };
+
+      // INICIALIZAÇÃO
+      $(document).ready(function() {
+        // Sistema de temas
+        initTheme();
+        
+        // Configurar seletor de formulários
+        $('#formSelector').on('change', function() {
+          const selectedForm = $(this).val();
+          $('.form-card').removeClass('active');
+          $('#' + selectedForm).addClass('active');
+          
+          // Scroll suave para o formulário
+          $('html, body').animate({
+            scrollTop: $('#' + selectedForm).offset().top - 100
+          }, 300);
+        });
+        
+        // Configurar máscaras de data
+        $('.data_hour').mask('00 Mmm 0000', {
+          translation: {
+            'M': { pattern: /[A-Za-z]/ },
+            'm': { pattern: /[a-z]/ }
+          },
+          placeholder: 'DD Mmm AAAA'
+        });
+        
+        // Preencher datas automáticas
+        document.querySelectorAll('.data_hour').forEach(function(element) {
+          if (!element.value) {
+            element.value = getCurrentDate();
+          }
+        });
+        
+        // Configurar eventos dos formulários
+        setupFormEvents();
+      });
+
+      // SISTEMA DE TEMAS
+      function initTheme() {
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Aplicar tema salvo
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        // Configurar toggle
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = document.body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          
+          document.body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+
+      // FUNÇÃO PARA OBTER DATA ATUAL
+      function getCurrentDate() {
+        const now = new Date();
+        const day = now.getDate().toString().padStart(2, '0');
+        const month = meses[now.getMonth()];
+        const year = now.getFullYear();
+        return `${day} ${month} ${year}`;
+      }
+
+      // FUNÇÃO PARA CALCULAR DATA FUTURA
+      function calculateFutureDate(startDate, days) {
+        const [day, monthName, year] = startDate.split(' ');
+        const monthIndex = meses.indexOf(monthName);
+        const date = new Date(year, monthIndex, parseInt(day));
+        date.setDate(date.getDate() + days);
+        
+        const newDay = date.getDate().toString().padStart(2, '0');
+        const newMonth = meses[date.getMonth()];
+        const newYear = date.getFullYear();
+        return `${newDay} ${newMonth} ${newYear}`;
+      }
+
+      // FUNÇÕES DE VALIDAÇÃO
+      function validateForm(fields) {
+        for (const field of fields) {
+          const element = $(field);
+          if (!element.val() || element.val().trim() === '') {
+            showError(`Preencha o campo: ${element.prev('.input-label').text()}`);
+            element.focus();
+            return false;
+          }
+        }
+        return true;
+      }
+
+      // FUNÇÃO PARA MOSTRAR NOTIFICAÇÃO
+      function showNotification(title, message, type = 'success') {
+        const notification = $('#notification');
+        const icon = notification.find('.notification-icon');
+        const titleEl = notification.find('.notification-title');
+        const messageEl = notification.find('.notification-message');
+        
+        // Configurar cor baseada no tipo
+        notification.css('background-color', type === 'success' ? 'var(--success-color)' : 'var(--error-color)');
+        
+        // Atualizar conteúdo
+        titleEl.text(title);
+        messageEl.text(message);
+        
+        // Mostrar notificação
+        notification.addClass('show');
+        
+        // Esconder automaticamente após 5 segundos
+        setTimeout(hideNotification, 5000);
+      }
+
+      function hideNotification() {
+        $('#notification').removeClass('show');
+      }
+
+      function showError(message) {
+        showNotification('Erro', message, 'error');
+      }
+
+      // FUNÇÃO PARA RESETAR FORMULÁRIO
+      function resetForm(formId) {
+        const form = document.getElementById(formId);
+        if (form) {
+          form.reset();
+          // Restaurar datas automáticas
+          $(form).find('.data_hour').each(function() {
+            if (!$(this).val()) {
+              $(this).val(getCurrentDate());
+            }
+          });
+          showNotification('Formulário Limpo', 'Todos os campos foram resetados.');
+        }
+      }
+
+      // CONFIGURAR EVENTOS DOS FORMULÁRIOS
+      function setupFormEvents() {
+        // 1. ENTRADA DE MEMBROS
+        $('#form_entrada').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#ent_membros', '#ent_data'])) return false;
+          
+          const membros = $('#ent_membros').val().split(' / ');
+          const lista = membros.map(nick => `• [b]${nick}[/b] - ${$('#ent_data').val()}`).join('\n');
+          const texto = `[font=Trebuchet MS][b][color=#337218]ENTRADA DE MEMBROS[/color][/b]\n${lista}[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 2. EXPULSÃO DO SUBGRUPO
+        $('#form_expulsao').on('submit', function(e) {
+          e.preventDefault();
+          const fields = ['#exp_nick', '#exp_cargo', '#exp_motivo', '#exp_comprovante', '#exp_perm', '#exp_entrada', '#exp_saida'];
+          if (!validateForm(fields) || !$('#exp_check').prop('checked')) return false;
+          
+          const cargo = cargos[$('#exp_cargo').val()] || $('#exp_cargo').val();
+          const texto = `[font=Trebuchet MS][b][color=#337218]EXPULSÃO DO SUBGRUPO[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#exp_nick').val()}\n` +
+            `[b]Cargo:[/b] ${cargo}\n` +
+            `[b]Motivo:[/b] ${$('#exp_motivo').val()}\n` +
+            `[b]Comprovante:[/b] ${$('#exp_comprovante').val()}\n` +
+            `[b]Permissão:[/b] ${$('#exp_perm').val()}\n` +
+            `[b]Entrada:[/b] ${$('#exp_entrada').val()}\n` +
+            `[b]Expulsão:[/b] ${$('#exp_saida').val()}\n\n` +
+            `[b]✓[/b] Retorno bloqueado por 07 dias.[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 3. LICENÇA
+        $('#form_licenca').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#lic_nick', '#lic_dias', '#lic_perm']) || !$('#lic_check').prop('checked')) return false;
+          
+          const termino = calculateFutureDate(getCurrentDate(), parseInt($('#lic_dias').val()));
+          const texto = `[font=Trebuchet MS][b][color=#337218]LICENÇA[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#lic_nick').val()}\n` +
+            `[b]Duração:[/b] ${$('#lic_dias').val()} dias\n` +
+            `[b]Término:[/b] ${termino}\n` +
+            `[b]Permissão:[/b] ${$('#lic_perm').val()}\n\n` +
+            `[b]✓[/b] Comprometo-me a postar o retorno em até 24h após o término.[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 4. PROMOÇÃO INTERNA
+        $('#form_promocao').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#prom_nick', '#prom_atual', '#prom_novo', '#prom_motivo'])) return false;
+          
+          const cargoAtual = $('#prom_atual option:selected').text();
+          const cargoNovo = $('#prom_novo option:selected').text();
+          const texto = `[font=Trebuchet MS][b][color=#337218]PROMOÇÃO INTERNA[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#prom_nick').val()}\n` +
+            `[b]De:[/b] ${cargoAtual}\n` +
+            `[b]Para:[/b] ${cargoNovo}\n` +
+            `[b]Motivo:[/b] ${$('#prom_motivo').val()}[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 5. REBAIXAMENTO INTERNO
+        $('#form_rebaixamento').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#reb_nick', '#reb_atual', '#reb_novo', '#reb_motivo'])) return false;
+          
+          const cargoAtual = $('#reb_atual option:selected').text();
+          const cargoNovo = $('#reb_novo option:selected').text();
+          const texto = `[font=Trebuchet MS][b][color=#337218]REBAIXAMENTO INTERNO[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#reb_nick').val()}\n` +
+            `[b]De:[/b] ${cargoAtual}\n` +
+            `[b]Para:[/b] ${cargoNovo}\n` +
+            `[b]Motivo:[/b] ${$('#reb_motivo').val()}[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 6. SAÍDA DO SUBGRUPO
+        $('#form_saida').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#sai_nick', '#sai_perm', '#sai_motivo']) || !$('#sai_check').prop('checked')) return false;
+          
+          const texto = `[font=Trebuchet MS][b][color=#337218]SAÍDA DO SUBGRUPO[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#sai_nick').val()}\n` +
+            `[b]Motivo:[/b] ${$('#sai_motivo').val()}\n` +
+            `[b]Permissão:[/b] ${$('#sai_perm').val()}\n\n` +
+            `[b]✓[/b] Li e concordo com as normas de saída.[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 7. PROLONGAMENTO DE LICENÇA
+        $('#form_prolongamento').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#prol_nick', '#prol_dias', '#prol_perm', '#prol_motivo'])) return false;
+          
+          const texto = `[font=Trebuchet MS][b][color=#337218]PROLONGAMENTO DE LICENÇA[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#prol_nick').val()}\n` +
+            `[b]Dias Adicionais:[/b] ${$('#prol_dias').val()}\n` +
+            `[b]Motivo:[/b] ${$('#prol_motivo').val()}\n` +
+            `[b]Permissão:[/b] ${$('#prol_perm').val()}[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 8. RETORNO DE LICENÇA
+        $('#form_retorno').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#ret_nick'])) return false;
+          
+          const texto = `[font=Trebuchet MS][b][color=#337218]RETORNO DE LICENÇA[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#ret_nick').val()}\n` +
+            `[b]✓[/b] Estou retornando de minha licença![/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 9. TRANSFERÊNCIA DE CONTA
+        $('#form_transferencia').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#trans_antiga', '#trans_nova', '#trans_cargo'])) return false;
+          
+          const cargo = $('#trans_cargo option:selected').text();
+          const texto = `[font=Trebuchet MS][b][color=#337218]TRANSFERÊNCIA DE CONTA[/color][/b]\n\n` +
+            `[b]Conta Antiga:[/b] ${$('#trans_antiga').val()}\n` +
+            `[b]Nova Conta:[/b] ${$('#trans_nova').val()}\n` +
+            `[b]Cargo:[/b] ${cargo}[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 10. REINTEGRAÇÃO AO SUBGRUPO
+        $('#form_reintegracao').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#reint_nick', '#reint_data', '#reint_grad']) || !$('#reint_check').prop('checked')) return false;
+          
+          const texto = `[font=Trebuchet MS][b][color=#337218]REINTEGRAÇÃO AO SUBGRUPO[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#reint_nick').val()}\n` +
+            `[b]Data:[/b] ${$('#reint_data').val()}\n` +
+            `[b]Graduação Necessária:[/b] ${$('#reint_grad').val()}\n\n` +
+            `[b]✓[/b] Informações foram passadas corretamente ao membro.[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 11. ADVERTÊNCIA INTERNA
+        $('#form_advertencia').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#adv_nick', '#adv_data', '#adv_motivo', '#adv_perm'])) return false;
+          
+          const terminoPB = calculateFutureDate($('#adv_data').val(), 7);
+          const terminoAdv = calculateFutureDate($('#adv_data').val(), 30);
+          
+          const texto = `[font=Trebuchet MS][b][color=#337218]ADVERTÊNCIA INTERNA[/color][/b]\n\n` +
+            `[b]Membro:[/b] ${$('#adv_nick').val()}\n` +
+            `[b]Início:[/b] ${$('#adv_data').val()}\n` +
+            `[b]Promoção Bloqueada até:[/b] ${terminoPB}\n` +
+            `[b]Término da Advertência:[/b] ${terminoAdv}\n` +
+            `[b]Motivo:[/b] ${$('#adv_motivo').val()}\n` +
+            `[b]Permissão:[/b] ${$('#adv_perm').val()}[/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+
+        // 12. ATUALIZAÇÃO DE LISTAGEM
+        $('#form_atualizacao').on('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(['#atu_membros'])) return false;
+          
+          const texto = `[font=Trebuchet MS][b][color=#337218]ATUALIZAÇÃO DE LISTAGEM[/color][/b]\n\n` +
+            `[b]Atualizador:[/b] ${$('#atu_membros').val()}\n` +
+            `[b]Data:[/b] ${getCurrentDate()}\n\n` +
+            `[b]✓[/b] Listagem atualizada com sucesso![/font]`;
+          
+          $('#fa-generated-message').val(texto);
+          copyToClipboard(texto);
+          return false;
+        });
+      }
+
+      // FUNÇÃO PARA COPIAR PARA ÁREA DE TRANSFERÊNCIA
+      function copyToClipboard(text) {
+        const textarea = document.getElementById('fa-generated-message');
+        textarea.value = text;
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+        
+        try {
+          document.execCommand('copy');
+          showNotification('Texto Copiado!', 'O texto formatado foi copiado para a área de transferência.');
+        } catch (err) {
+          showError('Erro ao copiar texto. Tente novamente.');
+        }
+      }
+
+    </script>
+  </body>
+</html>
