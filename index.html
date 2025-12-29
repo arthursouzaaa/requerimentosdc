@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>[DC] - Requerimentos de Membros</title>
-    <link rel="icon" href="badgedc.png" />
+    <link rel="icon" href="https://www.habbo.com.br/habbo-imaging/badge/b09134s36044s17113s17115s411572bdcb085d5ac5c90633499e4400fc709.gif" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-      
+
       /* ====== VARIÁVEIS DE CORES - TEMA CLARO ===== */
       :root {
         /* Cores principais */
         --primary-color: #337218;
         --primary-light: #4a9e2a;
         --primary-dark: #2a5d14;
-        
+
         /* Cores do tema claro */
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
@@ -25,27 +25,27 @@
         --border-color: #e2e8f0;
         --shadow-color: rgba(0, 0, 0, 0.08);
         --hover-color: #f7fafc;
-        
+
         /* Cores de elementos */
         --input-bg: #ffffff;
         --input-border: #cbd5e0;
         --header-bg: #ffffff;
         --footer-bg: #1a202c;
         --footer-text: #e2e8f0;
-        
+
         /* Ícones */
         --icon-color: #4a5568;
-        
+
         /* Status */
         --success-color: #38a169;
         --error-color: #e53e3e;
         --warning-color: #d69e2e;
-        
+
         /* Tamanhos e espaçamentos */
         --border-radius: 12px;
         --card-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
         --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        
+
         /* Tipografia */
         --body-font: "Poppins", "sans-serif";
         --title-font-size: 2.2rem;
@@ -62,13 +62,13 @@
         --border-color: #334155;
         --shadow-color: rgba(0, 0, 0, 0.3);
         --hover-color: #2d3748;
-        
+
         --input-bg: #1e293b;
         --input-border: #475569;
         --header-bg: #1e293b;
         --footer-bg: #0f172a;
         --footer-text: #cbd5e1;
-        
+
         --icon-color: #cbd5e1;
       }
 
@@ -78,11 +78,11 @@
         padding: 0;
         box-sizing: border-box;
       }
-      
+
       html {
         scroll-behavior: smooth;
       }
-      
+
       body {
         font-family: var(--body-font);
         font-size: var(--normal-font-size);
@@ -92,13 +92,13 @@
         transition: var(--transition);
         min-height: 100vh;
       }
-      
+
       .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
       }
-      
+
       /* ====== HEADER ===== */
       .header {
         background-color: var(--header-bg);
@@ -110,7 +110,7 @@
         z-index: 1000;
         transition: var(--transition);
       }
-      
+
       .header-container {
         display: flex;
         align-items: center;
@@ -118,13 +118,13 @@
         padding: 1rem 0;
         height: 70px;
       }
-      
+
       .header-left {
         display: flex;
         align-items: center;
         gap: 15px;
       }
-      
+
       .header-logo {
         width: 40px;
         height: 40px;
@@ -132,24 +132,24 @@
         object-fit: cover;
         border: 2px solid var(--primary-color);
       }
-      
+
       .header-title {
         font-size: 1.3rem;
         font-weight: 600;
         color: var(--text-color);
         letter-spacing: 0.5px;
       }
-      
+
       .header-title span {
         color: var(--primary-color);
       }
-      
+
       .header-right {
         display: flex;
         align-items: center;
         gap: 20px;
       }
-      
+
       /* ====== TOGGLE DE TEMA ===== */
       .theme-toggle {
         background: none;
@@ -164,56 +164,56 @@
         justify-content: center;
         transition: var(--transition);
       }
-      
+
       .theme-toggle:hover {
         background-color: var(--hover-color);
         transform: rotate(15deg);
       }
-      
+
       .theme-toggle .bx-sun {
         display: none;
       }
-      
+
       [data-theme="dark"] .theme-toggle .bx-sun {
         display: block;
       }
-      
+
       [data-theme="dark"] .theme-toggle .bx-moon {
         display: none;
       }
-      
+
       /* ====== CONTEÚDO PRINCIPAL ===== */
       .main-content {
         margin-top: 90px;
         padding: 2rem 0;
       }
-      
+
       .page-title {
         text-align: center;
         margin-bottom: 2rem;
       }
-      
+
       .page-title h1 {
         font-size: var(--title-font-size);
         font-weight: 700;
         margin-bottom: 0.5rem;
         color: var(--text-color);
       }
-      
+
       .page-title p {
         font-size: var(--subtitle-font-size);
         color: var(--text-secondary);
         max-width: 600px;
         margin: 0 auto;
       }
-      
+
       /* ====== SELECTOR DE FORMULÁRIOS ===== */
       .form-selector-container {
         position: relative;
         max-width: 600px;
         margin: 2rem auto 3rem;
       }
-      
+
       .form-selector {
         width: 100%;
         padding: 1rem 1.5rem;
@@ -228,13 +228,13 @@
         transition: var(--transition);
         box-shadow: var(--card-shadow);
       }
-      
+
       .form-selector:focus {
         outline: none;
         border-color: var(--primary-color);
         box-shadow: 0 0 0 3px rgba(51, 114, 24, 0.1);
       }
-      
+
       .form-selector-icon {
         position: absolute;
         right: 1.5rem;
@@ -244,7 +244,7 @@
         pointer-events: none;
         font-size: 1.2rem;
       }
-      
+
       /* ====== CONTAINER DE FORMULÁRIOS ===== */
       .forms-container {
         display: grid;
@@ -252,7 +252,7 @@
         max-width: 800px;
         margin: 0 auto;
       }
-      
+
       /* ====== CARD DE FORMULÁRIO ===== */
       .form-card {
         background-color: var(--card-bg);
@@ -263,12 +263,12 @@
         border: 1px solid var(--border-color);
         display: none;
       }
-      
+
       .form-card.active {
         display: block;
         animation: slideUp 0.4s ease-out;
       }
-      
+
       @keyframes slideUp {
         from {
           opacity: 0;
@@ -279,7 +279,7 @@
           transform: translateY(0);
         }
       }
-      
+
       .form-card-header {
         padding: 1.5rem;
         background-color: var(--primary-color);
@@ -289,20 +289,20 @@
         gap: 1rem;
         cursor: pointer;
       }
-      
+
       .form-card-icon {
         font-size: 1.5rem;
       }
-      
+
       .form-card-title {
         font-size: 1.2rem;
         font-weight: 600;
       }
-      
+
       .form-card-body {
         padding: 2rem;
       }
-      
+
       /* ====== FORMULÁRIOS ===== */
       .form-group {
         display: grid;
@@ -310,11 +310,11 @@
         gap: 1.5rem;
         margin-bottom: 1.5rem;
       }
-      
+
       .input-group {
         margin-bottom: 1.5rem;
       }
-      
+
       .input-label {
         display: block;
         margin-bottom: 0.5rem;
@@ -322,7 +322,7 @@
         color: var(--text-color);
         font-size: 0.95rem;
       }
-      
+
       .input-field,
       .input-select {
         width: 100%;
@@ -335,19 +335,19 @@
         border-radius: 8px;
         transition: var(--transition);
       }
-      
+
       .input-field:focus,
       .input-select:focus {
         outline: none;
         border-color: var(--primary-color);
         box-shadow: 0 0 0 3px rgba(51, 114, 24, 0.1);
       }
-      
+
       .input-field::placeholder {
         color: var(--text-secondary);
         opacity: 0.7;
       }
-      
+
       /* ====== CHECKBOX ===== */
       .checkbox-group {
         display: flex;
@@ -359,7 +359,7 @@
         margin: 2rem 0;
         border-left: 4px solid var(--primary-color);
       }
-      
+
       .checkbox-group input[type="checkbox"] {
         margin-top: 0.25rem;
         width: 18px;
@@ -367,7 +367,7 @@
         cursor: pointer;
         accent-color: var(--primary-color);
       }
-      
+
       .checkbox-group label {
         flex: 1;
         color: var(--text-color);
@@ -375,7 +375,7 @@
         line-height: 1.5;
         cursor: pointer;
       }
-      
+
       /* ====== BOTÕES ===== */
       .form-actions {
         display: flex;
@@ -385,7 +385,7 @@
         padding-top: 2rem;
         border-top: 1px solid var(--border-color);
       }
-      
+
       .btn {
         padding: 0.875rem 2rem;
         font-size: 1rem;
@@ -401,38 +401,38 @@
         gap: 0.5rem;
         min-width: 150px;
       }
-      
+
       .btn-primary {
         background-color: var(--primary-color);
         color: white;
       }
-      
+
       .btn-primary:hover {
         background-color: var(--primary-light);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(51, 114, 24, 0.2);
       }
-      
+
       .btn-primary:active {
         transform: translateY(0);
       }
-      
+
       .btn-secondary {
         background-color: transparent;
         color: var(--text-color);
         border: 1px solid var(--border-color);
       }
-      
+
       .btn-secondary:hover {
         background-color: var(--hover-color);
       }
-      
+
       .btn:disabled {
         opacity: 0.6;
         cursor: not-allowed;
         transform: none !important;
       }
-      
+
       /* ====== NOTIFICAÇÃO ===== */
       .notification {
         position: fixed;
@@ -451,30 +451,30 @@
         opacity: 0;
         transition: var(--transition);
       }
-      
+
       .notification.show {
         transform: translateY(0);
         opacity: 1;
       }
-      
+
       .notification-icon {
         font-size: 1.5rem;
       }
-      
+
       .notification-content {
         flex: 1;
       }
-      
+
       .notification-title {
         font-weight: 600;
         margin-bottom: 0.25rem;
       }
-      
+
       .notification-message {
         font-size: 0.9rem;
         opacity: 0.9;
       }
-      
+
       /* ====== FOOTER ===== */
       .footer {
         background-color: var(--footer-bg);
@@ -482,26 +482,26 @@
         margin-top: 4rem;
         padding: 3rem 0 2rem;
       }
-      
+
       .footer-content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin-bottom: 2rem;
       }
-      
+
       .footer-section h3 {
         font-size: 1.2rem;
         margin-bottom: 1rem;
         color: white;
       }
-      
+
       .footer-section p {
         font-size: 0.95rem;
         line-height: 1.6;
         opacity: 0.8;
       }
-      
+
       .footer-bottom {
         text-align: center;
         padding-top: 2rem;
@@ -509,7 +509,7 @@
         font-size: 0.9rem;
         opacity: 0.7;
       }
-      
+
       .credits {
         display: flex;
         align-items: center;
@@ -517,85 +517,85 @@
         gap: 0.5rem;
         margin-top: 0.5rem;
       }
-      
+
       /* ====== RESPONSIVIDADE ===== */
       @media (max-width: 768px) {
         :root {
           --title-font-size: 1.8rem;
         }
-        
+
         .header-container {
           padding: 1rem;
           height: 60px;
         }
-        
+
         .header-title {
           font-size: 1.1rem;
         }
-        
+
         .main-content {
           margin-top: 80px;
           padding: 1.5rem 1rem;
         }
-        
+
         .form-card-body {
           padding: 1.5rem;
         }
-        
+
         .form-group {
           grid-template-columns: 1fr;
           gap: 1rem;
         }
-        
+
         .form-actions {
           flex-direction: column;
         }
-        
+
         .btn {
           width: 100%;
         }
-        
+
         .notification {
           left: 1rem;
           right: 1rem;
           bottom: 1rem;
         }
       }
-      
+
       @media (max-width: 480px) {
         .header-left {
           gap: 10px;
         }
-        
+
         .header-logo {
           width: 35px;
           height: 35px;
         }
-        
+
         .page-title h1 {
           font-size: 1.5rem;
         }
-        
+
         .page-title p {
           font-size: 1rem;
         }
-        
+
         .form-card-header {
           padding: 1rem;
         }
       }
-      
+
       /* ====== UTILITÁRIOS ===== */
       .hidden {
         display: none !important;
       }
-      
+
       .loading {
         position: relative;
         pointer-events: none;
         opacity: 0.7;
       }
-      
+
       .loading::after {
         content: '';
         position: absolute;
@@ -607,7 +607,7 @@
         animation: spin 0.8s linear infinite;
         right: 1rem;
       }
-      
+
       @keyframes spin {
         to {
           transform: rotate(360deg);
@@ -618,12 +618,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   </head>
-  <body data-theme="light">
+  <body>
     <!-- HEADER -->
     <header class="header">
       <div class="container header-container">
         <div class="header-left">
-          <img src="badgedc.png" alt="Badge DC" class="header-logo">
+          <img src="https://www.habbo.com.br/habbo-imaging/badge/b09134s36044s17113s17115s411572bdcb085d5ac5c90633499e4400fc709.gif" alt="Badge DC" class="header-logo">
           <h1 class="header-title">[OM] <span>Departamento de Comunicação</span></h1>
         </div>
         <div class="header-right">
@@ -667,7 +667,7 @@
 
         <!-- CONTAINER DE FORMULÁRIOS -->
         <div class="forms-container">
-          
+
           <!-- FORMULÁRIO 1: ENTRADA DE MEMBROS -->
           <div class="form-card active" id="entrada_membros">
             <div class="form-card-header">
@@ -715,10 +715,10 @@
                     <label class="input-label">Cargo</label>
                     <select id="exp_cargo" class="input-select" required>
                       <option value="" disabled selected>Selecione o cargo</option>
-                      <option value="Anl.DC">Analista</option>
-                      <option value="Coord.DC">Coordenador</option>
-                      <option value="VL.DC">Vice-Líder</option>
-                      <option value="L.DC">Líder</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
                     </select>
                   </div>
                 </div>
@@ -730,7 +730,7 @@
                   <div class="input-group">
                     <label class="input-label">Comprovante</label>
                     <input id="exp_comprovante" type="text" class="input-field" placeholder="Link/comprovante (Preferível imgur)" required />
-                  </div>
+                                    </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -817,20 +817,20 @@
                     <label class="input-label">Cargo Atual</label>
                     <select id="prom_atual" class="input-select" required>
                       <option value="" disabled selected>Selecione cargo atual</option>
-                      <option value="Anl.DC">Analista</option>
-                      <option value="Coord.DC">Coordenador</option>
-                      <option value="VL.DC">Vice-Líder</option>
-                      <option value="L.DC">Líder</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
                     </select>
                   </div>
                   <div class="input-group">
                     <label class="input-label">Novo Cargo</label>
                     <select id="prom_novo" class="input-select" required>
                       <option value="" disabled selected>Selecione cargo novo</option>
-                      <option value="Anl.DC">Analista</option>
-                      <option value="Coord.DC">Coordenador</option>
-                      <option value="VL.DC">Vice-Líder</option>
-                      <option value="L.DC">Líder</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
                     </select>
                   </div>
                 </div>
@@ -867,20 +867,20 @@
                     <label class="input-label">Cargo Atual</label>
                     <select id="reb_atual" class="input-select" required>
                       <option value="" disabled selected>Selecione cargo atual</option>
-                      <option value="Anl.DC">Analista</option>
-                      <option value="Coord.DC">Coordenador</option>
-                      <option value="VL.DC">Vice-Líder</option>
-                      <option value="L.DC">Líder</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
                     </select>
                   </div>
                   <div class="input-group">
                     <label class="input-label">Novo Cargo</label>
                     <select id="reb_novo" class="input-select" required>
                       <option value="" disabled selected>Selecione cargo novo</option>
-                      <option value="Anl.DC">Analista</option>
-                      <option value="Coord.DC">Coordenador</option>
-                      <option value="VL.DC">Vice-Líder</option>
-                      <option value="L.DC">Líder</option>
+                      <option value="Anl.DA">Analista</option>
+                      <option value="Coord.DA">Coordenador</option>
+                      <option value="VL.DA">Vice-Líder</option>
+                      <option value="L.DA">Líder</option>
                     </select>
                   </div>
                 </div>
@@ -1024,10 +1024,10 @@
                   <label class="input-label">Cargo na Companhia</label>
                   <select id="trans_cargo" class="input-select" required>
                     <option value="" disabled selected>Selecione o cargo</option>
-                    <option value="Anl.DC">Analista</option>
-                    <option value="Coord.DC">Coordenador</option>
-                    <option value="VL.DC">Vice-Líder</option>
-                    <option value="L.DC">Líder</option>
+                    <option value="Anl.DA">Analista</option>
+                    <option value="Coord.DA">Coordenador</option>
+                    <option value="VL.DA">Vice-Líder</option>
+                    <option value="L.DA">Líder</option>
                   </select>
                 </div>
                 <div class="form-actions">
@@ -1119,7 +1119,7 @@
                   <button type="button" class="btn btn-secondary" onclick="resetForm('form_advertencia')">
                     <i class="bx bx-reset"></i> Limpar
                   </button>
-                </div>
+                         </div>
               </form>
             </div>
           </div>
@@ -1192,34 +1192,34 @@
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    
+
     <script>
       // VARIÁVEIS GLOBAIS
       const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
       const cargos = {
-        "Anl.DC": "Analista",
-        "Coord.DC": "Coordenador", 
-        "VL.DC": "Vice-Líder",
-        "L.DC": "Líder"
+        "Anl.DA": "Analista",
+        "Coord.DA": "Coordenador", 
+        "VL.DA": "Vice-Líder",
+        "L.DA": "Líder"
       };
 
       // INICIALIZAÇÃO
       $(document).ready(function() {
         // Sistema de temas
         initTheme();
-        
+
         // Configurar seletor de formulários
         $('#formSelector').on('change', function() {
           const selectedForm = $(this).val();
           $('.form-card').removeClass('active');
           $('#' + selectedForm).addClass('active');
-          
+
           // Scroll suave para o formulário
           $('html, body').animate({
             scrollTop: $('#' + selectedForm).offset().top - 100
           }, 300);
         });
-        
+
         // Configurar máscaras de data
         $('.data_hour').mask('00 Mmm 0000', {
           translation: {
@@ -1228,14 +1228,14 @@
           },
           placeholder: 'DD Mmm AAAA'
         });
-        
+
         // Preencher datas automáticas
         document.querySelectorAll('.data_hour').forEach(function(element) {
           if (!element.value) {
             element.value = getCurrentDate();
           }
         });
-        
+
         // Configurar eventos dos formulários
         setupFormEvents();
       });
@@ -1244,15 +1244,15 @@
       function initTheme() {
         const themeToggle = document.getElementById('themeToggle');
         const currentTheme = localStorage.getItem('theme') || 'light';
-        
+
         // Aplicar tema salvo
         document.body.setAttribute('data-theme', currentTheme);
-        
+
         // Configurar toggle
         themeToggle.addEventListener('click', () => {
           const currentTheme = document.body.getAttribute('data-theme');
           const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-          
+
           document.body.setAttribute('data-theme', newTheme);
           localStorage.setItem('theme', newTheme);
         });
@@ -1273,7 +1273,7 @@
         const monthIndex = meses.indexOf(monthName);
         const date = new Date(year, monthIndex, parseInt(day));
         date.setDate(date.getDate() + days);
-        
+
         const newDay = date.getDate().toString().padStart(2, '0');
         const newMonth = meses[date.getMonth()];
         const newYear = date.getFullYear();
@@ -1294,22 +1294,24 @@
       }
 
       // FUNÇÃO PARA MOSTRAR NOTIFICAÇÃO
-      function showNotification(title, message, type = 'success') {
+      function showNotification(title, message, type = 'success', href) {
         const notification = $('#notification');
         const icon = notification.find('.notification-icon');
         const titleEl = notification.find('.notification-title');
         const messageEl = notification.find('.notification-message');
-        
+
         // Configurar cor baseada no tipo
         notification.css('background-color', type === 'success' ? 'var(--success-color)' : 'var(--error-color)');
-        
+
         // Atualizar conteúdo
         titleEl.text(title);
         messageEl.text(message);
-        
+
         // Mostrar notificação
         notification.addClass('show');
-        
+      
+      setTimeout(() => location.href = href, 2000);
+
         // Esconder automaticamente após 5 segundos
         setTimeout(hideNotification, 5000);
       }
@@ -1336,6 +1338,21 @@
           showNotification('Formulário Limpo', 'Todos os campos foram resetados.');
         }
       }
+      
+      // FUNÇAO PARA ENVIAR MENSAGEM NOS TOPICOS
+      function postMessage(text) {
+      setTimeout(() => {
+      $.post("/post", {
+      	t: 39009,
+      	message: text,
+      	mode: "reply",
+      	post: 1
+      }).done(function () {
+      showNotification('Postado com sucesso!', 'Você será redirecionado automaticamente.', 'success', '/t39009-?view=newest')
+                })
+            }, 600);
+      return false;
+      }
 
       // CONFIGURAR EVENTOS DOS FORMULÁRIOS
       function setupFormEvents() {
@@ -1343,14 +1360,13 @@
         $('#form_entrada').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#ent_membros', '#ent_data'])) return false;
-          
-          const membros = $('#ent_membros').val().split(' / ');
-          const lista = membros.map(nick => `• [b]${nick}[/b] - ${$('#ent_data').val()}`).join('\n');
-          const texto = `[font=Trebuchet MS][b][color=#337218]ENTRADA DE MEMBROS[/color][/b]\n${lista}[/font]`;
-          
+      
+      const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]ENTRADA DE MEMBROS[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
+            `[b]Novos membros:[/b] ${$('#ent_membros').val()}\n` +
+            `[b]Data:[/b] ${$('#ent_data').val()}\n`;
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+      postMessage(texto);
         });
 
         // 2. EXPULSÃO DO SUBGRUPO
@@ -1358,9 +1374,9 @@
           e.preventDefault();
           const fields = ['#exp_nick', '#exp_cargo', '#exp_motivo', '#exp_comprovante', '#exp_perm', '#exp_entrada', '#exp_saida'];
           if (!validateForm(fields) || !$('#exp_check').prop('checked')) return false;
-          
+
           const cargo = cargos[$('#exp_cargo').val()] || $('#exp_cargo').val();
-          const texto = `[font=Trebuchet MS][b][color=#337218]EXPULSÃO DO SUBGRUPO[/color][/b]\n\n` +
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]EXPULSÃO DE MEMBROS[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#exp_nick').val()}\n` +
             `[b]Cargo:[/b] ${cargo}\n` +
             `[b]Motivo:[/b] ${$('#exp_motivo').val()}\n` +
@@ -1368,195 +1384,169 @@
             `[b]Permissão:[/b] ${$('#exp_perm').val()}\n` +
             `[b]Entrada:[/b] ${$('#exp_entrada').val()}\n` +
             `[b]Expulsão:[/b] ${$('#exp_saida').val()}\n\n` +
-            `[b]✓[/b] Retorno bloqueado por 07 dias.[/font]`;
-          
+            `[b]✓[/b] Retorno bloqueado por 07 dias.`;
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 3. LICENÇA
         $('#form_licenca').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#lic_nick', '#lic_dias', '#lic_perm']) || !$('#lic_check').prop('checked')) return false;
-          
+
           const termino = calculateFutureDate(getCurrentDate(), parseInt($('#lic_dias').val()));
-          const texto = `[font=Trebuchet MS][b][color=#337218]LICENÇA[/color][/b]\n\n` +
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]LICENÇA[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#lic_nick').val()}\n` +
             `[b]Duração:[/b] ${$('#lic_dias').val()} dias\n` +
             `[b]Término:[/b] ${termino}\n` +
             `[b]Permissão:[/b] ${$('#lic_perm').val()}\n\n` +
-            `[b]✓[/b] Comprometo-me a postar o retorno em até 24h após o término.[/font]`;
-          
+            `[b]✓[/b] Comprometo-me a postar o retorno em até 24h após o término.`;
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 4. PROMOÇÃO INTERNA
         $('#form_promocao').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#prom_nick', '#prom_atual', '#prom_novo', '#prom_motivo'])) return false;
-          
+
           const cargoAtual = $('#prom_atual option:selected').text();
           const cargoNovo = $('#prom_novo option:selected').text();
-          const texto = `[font=Trebuchet MS][b][color=#337218]PROMOÇÃO INTERNA[/color][/b]\n\n` +
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]PROMOÇÃO INTERNA[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#prom_nick').val()}\n` +
-            `[b]De:[/b] ${cargoAtual}\n` +
-            `[b]Para:[/b] ${cargoNovo}\n` +
-            `[b]Motivo:[/b] ${$('#prom_motivo').val()}[/font]`;
-          
+            `[b]Atual cargo:[/b] ${cargoAtual}\n` +
+            `[b]Novo cargo:[/b] ${cargoNovo}\n` +
+            `[b]Motivo:[/b] ${$('#prom_motivo').val()}`;
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 5. REBAIXAMENTO INTERNO
         $('#form_rebaixamento').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#reb_nick', '#reb_atual', '#reb_novo', '#reb_motivo'])) return false;
-          
+
           const cargoAtual = $('#reb_atual option:selected').text();
           const cargoNovo = $('#reb_novo option:selected').text();
-          const texto = `[font=Trebuchet MS][b][color=#337218]REBAIXAMENTO INTERNO[/color][/b]\n\n` +
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]REBAIXAMENTO INTERNA[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#reb_nick').val()}\n` +
-            `[b]De:[/b] ${cargoAtual}\n` +
-            `[b]Para:[/b] ${cargoNovo}\n` +
+            `[b]Cargo atual:[/b] ${cargoAtual}\n` +
+            `[b]Novo cargo:[/b] ${cargoNovo}\n` +
             `[b]Motivo:[/b] ${$('#reb_motivo').val()}[/font]`;
-          
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 6. SAÍDA DO SUBGRUPO
         $('#form_saida').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#sai_nick', '#sai_perm', '#sai_motivo']) || !$('#sai_check').prop('checked')) return false;
-          
-          const texto = `[font=Trebuchet MS][b][color=#337218]SAÍDA DO SUBGRUPO[/color][/b]\n\n` +
+
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]SAÍDA DE MEMBROS[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#sai_nick').val()}\n` +
             `[b]Motivo:[/b] ${$('#sai_motivo').val()}\n` +
             `[b]Permissão:[/b] ${$('#sai_perm').val()}\n\n` +
             `[b]✓[/b] Li e concordo com as normas de saída.[/font]`;
-          
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 7. PROLONGAMENTO DE LICENÇA
         $('#form_prolongamento').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#prol_nick', '#prol_dias', '#prol_perm', '#prol_motivo'])) return false;
-          
-          const texto = `[font=Trebuchet MS][b][color=#337218]PROLONGAMENTO DE LICENÇA[/color][/b]\n\n` +
+
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]PROLONGAMENTO DE LICENÇA[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#prol_nick').val()}\n` +
-            `[b]Dias Adicionais:[/b] ${$('#prol_dias').val()}\n` +
+            `[b]Dias adicionais:[/b] ${$('#prol_dias').val()}\n` +
             `[b]Motivo:[/b] ${$('#prol_motivo').val()}\n` +
-            `[b]Permissão:[/b] ${$('#prol_perm').val()}[/font]`;
-          
+            `[b]Permissão:[/b] ${$('#prol_perm').val()}`;
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 8. RETORNO DE LICENÇA
         $('#form_retorno').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#ret_nick'])) return false;
-          
-          const texto = `[font=Trebuchet MS][b][color=#337218]RETORNO DE LICENÇA[/color][/b]\n\n` +
+
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]RETORNO DE LICENÇA[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#ret_nick').val()}\n` +
-            `[b]✓[/b] Estou retornando de minha licença![/font]`;
-          
+            `[b]✓[/b] Estou retornando de minha licença!`;
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 9. TRANSFERÊNCIA DE CONTA
         $('#form_transferencia').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#trans_antiga', '#trans_nova', '#trans_cargo'])) return false;
-          
+
           const cargo = $('#trans_cargo option:selected').text();
-          const texto = `[font=Trebuchet MS][b][color=#337218]TRANSFERÊNCIA DE CONTA[/color][/b]\n\n` +
-            `[b]Conta Antiga:[/b] ${$('#trans_antiga').val()}\n` +
-            `[b]Nova Conta:[/b] ${$('#trans_nova').val()}\n` +
-            `[b]Cargo:[/b] ${cargo}[/font]`;
-          
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]TRANSFERÊNCIA DE CONTA[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
+            `[b]Conta antiga:[/b] ${$('#trans_antiga').val()}\n` +
+            `[b]Nova conta:[/b] ${$('#trans_nova').val()}\n` +
+            `[b]Cargo:[/b] ${cargo}`;
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 10. REINTEGRAÇÃO AO SUBGRUPO
         $('#form_reintegracao').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#reint_nick', '#reint_data', '#reint_grad']) || !$('#reint_check').prop('checked')) return false;
-          
-          const texto = `[font=Trebuchet MS][b][color=#337218]REINTEGRAÇÃO AO SUBGRUPO[/color][/b]\n\n` +
+
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]REINTEGRAÇÃO DE MEMBROS[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#reint_nick').val()}\n` +
             `[b]Data:[/b] ${$('#reint_data').val()}\n` +
-            `[b]Graduação Necessária:[/b] ${$('#reint_grad').val()}\n\n` +
+            `[b]Graduação necessária:[/b] ${$('#reint_grad').val()}\n\n` +
             `[b]✓[/b] Informações foram passadas corretamente ao membro.[/font]`;
-          
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 11. ADVERTÊNCIA INTERNA
         $('#form_advertencia').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#adv_nick', '#adv_data', '#adv_motivo', '#adv_perm'])) return false;
-          
+
           const terminoPB = calculateFutureDate($('#adv_data').val(), 7);
           const terminoAdv = calculateFutureDate($('#adv_data').val(), 30);
-          
-          const texto = `[font=Trebuchet MS][b][color=#337218]ADVERTÊNCIA INTERNA[/color][/b]\n\n` +
+
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]ADVERTÊNCIA INTERNA[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
             `[b]Membro:[/b] ${$('#adv_nick').val()}\n` +
             `[b]Início:[/b] ${$('#adv_data').val()}\n` +
-            `[b]Promoção Bloqueada até:[/b] ${terminoPB}\n` +
-            `[b]Término da Advertência:[/b] ${terminoAdv}\n` +
+            `[b]Promoção bloqueada até:[/b] ${terminoPB}\n` +
+            `[b]Término da advertência:[/b] ${terminoAdv}\n` +
             `[b]Motivo:[/b] ${$('#adv_motivo').val()}\n` +
             `[b]Permissão:[/b] ${$('#adv_perm').val()}[/font]`;
-          
+
           $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
+          postMessage(texto);
         });
 
         // 12. ATUALIZAÇÃO DE LISTAGEM
         $('#form_atualizacao').on('submit', function(e) {
           e.preventDefault();
           if (!validateForm(['#atu_membros'])) return false;
-          
-          const texto = `[font=Trebuchet MS][b][color=#337218]ATUALIZAÇÃO DE LISTAGEM[/color][/b]\n\n` +
-            `[b]Atualizador:[/b] ${$('#atu_membros').val()}\n` +
+
+          const texto = `[center][table style="border-color: black; border-radius: 10px; overflow: hidden; width: auto;" bgcolor="#337218"][tr][td][center][color=#ffffff][b]ATUALIZAÇÃO DE LISTAGEM[/b][/color][/center][/td][/tr][/table][/center]\n\n` +
+            `[b]Responsável:[/b] ${$('#atu_membros').val()}\n` +
             `[b]Data:[/b] ${getCurrentDate()}\n\n` +
             `[b]✓[/b] Listagem atualizada com sucesso![/font]`;
-          
-          $('#fa-generated-message').val(texto);
-          copyToClipboard(texto);
-          return false;
-        });
-      }
 
-      // FUNÇÃO PARA COPIAR PARA ÁREA DE TRANSFERÊNCIA
-      function copyToClipboard(text) {
-        const textarea = document.getElementById('fa-generated-message');
-        textarea.value = text;
-        textarea.select();
-        textarea.setSelectionRange(0, 99999);
-        
-        try {
-          document.execCommand('copy');
-          showNotification('Texto Copiado!', 'O texto formatado foi copiado para a área de transferência.');
-        } catch (err) {
-          showError('Erro ao copiar texto. Tente novamente.');
-        }
+          $('#fa-generated-message').val(texto);
+          postMessage(texto);
+        });
       }
 
     </script>
